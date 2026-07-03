@@ -1,1 +1,147 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniGrade | JNTU Academic Calculator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+</div>
+
+<h1>UniGrade</h1>
+
+<p>Smart Academic Calculator for JNTU Students</p>
+
+<div class="input-box">
+
+<label>
+
+<i class="fa-solid fa-building-columns"></i>
+
+University
+
+</label>
+
+<select id="university">
+
+<option>JNTUK</option>
+
+<option>JNTUH</option>
+
+<option>JNTUA</option>
+
+</select>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+<i class="fa-solid fa-book"></i>
+
+Regulation
+
+</label>
+
+<select id="regulation">
+
+<option>R23</option>
+
+<option>R22</option>
+
+<option>R20</option>
+
+<option>R19</option>
+
+<option>R16</option>
+
+<option>R13</option>
+
+<option>R10</option>
+
+</select>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+<i class="fa-solid fa-calculator"></i>
+
+Calculator
+
+</label>
+
+<div class="radio">
+
+<label>
+
+<input type="radio" name="calc" value="sgpa" checked>
+
+SGPA Calculator
+
+</label>
+
+<label>
+
+<input type="radio" name="calc" value="cgpa">
+
+CGPA Calculator
+
+</label>
+
+</div>
+
+</div>
+
+<button onclick="continueApp()">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+Continue
+
+</button>
+
+<div class="footer">
+
+Version 1.0
+
+<br>
+
+Made with ❤️ by Tejesh Dimmiti
+
+</div>
+
+</div>
+
+<script src="home.js"></script>
+
+</body>
+
+</html>
