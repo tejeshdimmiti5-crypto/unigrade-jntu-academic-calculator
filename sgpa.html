@@ -1,1 +1,121 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniGrade | SGPA Calculator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1><i class="fa-solid fa-calculator"></i> SGPA Calculator</h1>
+
+<div class="grid">
+
+<div>
+
+<label>University</label>
+
+<select id="university">
+<option>JNTUK</option>
+<option>JNTUH</option>
+<option>JNTUA</option>
+</select>
+
+</div>
+
+<div>
+
+<label>Regulation</label>
+
+<select id="regulation">
+<option>R23</option>
+<option>R22</option>
+<option>R20</option>
+<option>R19</option>
+<option>R16</option>
+<option>R13</option>
+<option>R10</option>
+</select>
+
+</div>
+
+<div>
+
+<label>Branch</label>
+
+<select id="branch">
+
+<option>AI & DS</option>
+<option>AIML</option>
+<option>CSE</option>
+<option>ECE</option>
+<option>EEE</option>
+<option>IT</option>
+<option>Civil</option>
+<option>Mechanical</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label>Semester</label>
+
+<select id="semester">
+
+<option>I-I</option>
+<option>I-II</option>
+<option>II-I</option>
+<option>II-II</option>
+<option>III-I</option>
+<option>III-II</option>
+<option>IV-I</option>
+<option>IV-II</option>
+
+</select>
+
+</div>
+
+</div>
+
+<button onclick="loadSubjects()">
+
+Load Subjects
+
+</button>
+
+<br><br>
+
+<table id="subjectTable">
+
+</table>
+
+<div id="result"></div>
+
+</div>
+
+<script src="subjects.js"></script>
+
+<script src="sgpa.js"></script>
+
+</body>
+
+</html>
