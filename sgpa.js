@@ -1,110 +1,106 @@
+const gradePoints = {
+    "S":10,
+    "A":9,
+    "B":8,
+    "C":7,
+    "D":6,
+    "E":5,
+    "F":0
+};
 
 function loadSubjects(){
 
-let table=document.getElementById("subjectTable");
+    let table = `
+    <tr>
+        <th>Subject</th>
+        <th>Credits</th>
+        <th>Grade</th>
+    </tr>
+    `;
 
-table.innerHTML=`
+    subjects.forEach((subject,index)=>{
 
-<tr>
+        table += `
+        <tr>
 
-<th>Subject</th>
+            <td>${subject.name}</td>
 
-<th>Credits</th>
+            <td>${subject.credits}</td>
 
-<th>Grade</th>
+            <td>
 
-</tr>
+                <select id="g${index}">
 
-<tr>
+                    <option>S</option>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                    <option>E</option>
+                    <option>F</option>
 
-<td>Programming for Problem Solving</td>
+                </select>
 
-<td>3</td>
+            </td>
 
-<td>
+        </tr>
+        `;
 
-<select>
+    });
 
-<option>S</option>
+    table += `
+    <tr>
 
-<option>A</option>
+        <td colspan="3">
 
-<option>B</option>
+        <button onclick="calculateSGPA()">
 
-<option>C</option>
+        Calculate SGPA
 
-<option>D</option>
+        </button>
 
-<option>E</option>
+        </td>
 
-<option>F</option>
+    </tr>
+    `;
 
-</select>
+    document.getElementById("subjectTable").innerHTML = table;
 
-</td>
+}
 
-</tr>
+function calculateSGPA(){
 
-<tr>
+    let totalCredits = 0;
+    let totalPoints = 0;
 
-<td>Mathematics-I</td>
+    subjects.forEach((subject,index)=>{
 
-<td>4</td>
+        let grade = document.getElementById("g"+index).value;
 
-<td>
+        totalCredits += subject.credits;
 
-<select>
+        totalPoints += subject.credits * gradePoints[grade];
 
-<option>S</option>
+    });
 
-<option>A</option>
+    let sgpa = (totalPoints / totalCredits).toFixed(2);
 
-<option>B</option>
+    let percentage = ((sgpa - 0.75) * 10).toFixed(2);
 
-<option>C</option>
+    document.getElementById("result").style.display = "block";
 
-<option>D</option>
+    document.getElementById("result").innerHTML = `
 
-<option>E</option>
+        <h2>Result</h2>
 
-<option>F</option>
+        <p><b>Total Credits :</b> ${totalCredits}</p>
 
-</select>
+        <p><b>Total Credit Points :</b> ${totalPoints.toFixed(2)}</p>
 
-</td>
+        <p><b>SGPA :</b> ${sgpa}</p>
 
-</tr>
+        <p><b>Percentage :</b> ${percentage}%</p>
 
-<tr>
-
-<td>Engineering Physics</td>
-
-<td>3</td>
-
-<td>
-
-<select>
-
-<option>S</option>
-
-<option>A</option>
-
-<option>B</option>
-
-<option>C</option>
-
-<option>D</option>
-
-<option>E</option>
-
-<option>F</option>
-
-</select>
-
-</td>
-
-</tr>
-
-`;
+    `;
 
 }
