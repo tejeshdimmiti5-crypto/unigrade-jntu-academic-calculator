@@ -1,106 +1,143 @@
-const gradePoints = {
-    "S":10,
-    "A":9,
-    "B":8,
-    "C":7,
-    "D":6,
-    "E":5,
-    "F":0
+const gradePoint={
+
+S:10,
+A:9,
+B:8,
+C:7,
+D:6,
+E:5,
+F:0
+
 };
 
 function loadSubjects(){
 
-    let table = `
-    <tr>
-        <th>Subject</th>
-        <th>Credits</th>
-        <th>Grade</th>
-    </tr>
-    `;
+let university=document.getElementById("university").value;
 
-    subjects.forEach((subject,index)=>{
+let regulation=document.getElementById("regulation").value;
 
-        table += `
-        <tr>
+let branch=document.getElementById("branch").value;
 
-            <td>${subject.name}</td>
+let semester=document.getElementById("semester").value;
 
-            <td>${subject.credits}</td>
+let list=subjectData[university][regulation][branch][semester];
 
-            <td>
+let table=document.getElementById("subjectTable");
 
-                <select id="g${index}">
+table.innerHTML=`
 
-                    <option>S</option>
-                    <option>A</option>
-                    <option>B</option>
-                    <option>C</option>
-                    <option>D</option>
-                    <option>E</option>
-                    <option>F</option>
+<tr>
 
-                </select>
+<th>Subject</th>
 
-            </td>
+<th>Credits</th>
 
-        </tr>
-        `;
+<th>Grade</th>
 
-    });
+</tr>
 
-    table += `
-    <tr>
+`;
 
-        <td colspan="3">
+list.forEach((sub,index)=>{
 
-        <button onclick="calculateSGPA()">
+table.innerHTML+=`
 
-        Calculate SGPA
+<tr>
 
-        </button>
+<td>${sub.name}</td>
 
-        </td>
+<td>${sub.credits}</td>
 
-    </tr>
-    `;
+<td>
 
-    document.getElementById("subjectTable").innerHTML = table;
+<select id="g${index}">
+
+<option>S</option>
+
+<option>A</option>
+
+<option>B</option>
+
+<option>C</option>
+
+<option>D</option>
+
+<option>E</option>
+
+<option>F</option>
+
+</select>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="3">
+
+<button onclick="calculateSGPA()">
+
+Calculate SGPA
+
+</button>
+
+</td>
+
+</tr>
+
+`;
 
 }
 
 function calculateSGPA(){
 
-    let totalCredits = 0;
-    let totalPoints = 0;
+let university=document.getElementById("university").value;
 
-    subjects.forEach((subject,index)=>{
+let regulation=document.getElementById("regulation").value;
 
-        let grade = document.getElementById("g"+index).value;
+let branch=document.getElementById("branch").value;
 
-        totalCredits += subject.credits;
+let semester=document.getElementById("semester").value;
 
-        totalPoints += subject.credits * gradePoints[grade];
+let list=subjectData[university][regulation][branch][semester];
 
-    });
+let totalCredits=0;
 
-    let sgpa = (totalPoints / totalCredits).toFixed(2);
+let totalPoints=0;
 
-    let percentage = ((sgpa - 0.75) * 10).toFixed(2);
+list.forEach((sub,index)=>{
 
-    document.getElementById("result").style.display = "block";
+let grade=document.getElementById("g"+index).value;
 
-    document.getElementById("result").innerHTML = `
+totalCredits+=sub.credits;
 
-        <h2>Result</h2>
+totalPoints+=sub.credits*gradePoint[grade];
 
-        <p><b>Total Credits :</b> ${totalCredits}</p>
+});
 
-        <p><b>Total Credit Points :</b> ${totalPoints.toFixed(2)}</p>
+let sgpa=(totalPoints/totalCredits).toFixed(2);
 
-        <p><b>SGPA :</b> ${sgpa}</p>
+let percentage=((sgpa-0.75)*10).toFixed(2);
 
-        <p><b>Percentage :</b> ${percentage}%</p>
+document.getElementById("result").style.display="block";
 
-    `;
+document.getElementById("result").innerHTML=`
+
+<h2>Result</h2>
+
+<p><b>Total Credits:</b> ${totalCredits}</p>
+
+<p><b>SGPA:</b> ${sgpa}</p>
+
+<p><b>Percentage:</b> ${percentage}%</p>
+
+`;
 
 }
