@@ -1,159 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGPA Calculator | UniGrade</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/calculator.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UniGrade | JNTUK Academic Calculator</title>
+
+    <meta name="description"
+        content="Professional SGPA & CGPA Calculator for JNTUK R23 Regulation">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
+
 <body>
 
-<header class="navbar">
+<!-- ================= NAVBAR ================= -->
 
-    <div class="logo">
-        🎓 <span>UniGrade</span>
-    </div>
+<header>
 
-    <nav>
+<nav class="navbar">
 
-        <a href="../index.html">Home</a>
+<div class="logo">
 
-        <a href="sgpa.html" class="active">SGPA</a>
+<i class="fa-solid fa-graduation-cap"></i>
 
-        <a href="cgpa.html">CGPA</a>
+<h2>UniGrade</h2>
 
-        <a href="about.html">About</a>
+</div>
 
-        <a href="contact.html">Contact</a>
+<ul class="nav-links">
 
-    </nav>
+<li><a class="active" href="index.html">Home</a></li>
+
+<li><a href="pages/sgpa.html">SGPA</a></li>
+
+<li><a href="pages/cgpa.html">CGPA</a></li>
+
+<li><a href="pages/about.html">About</a></li>
+
+<li><a href="pages/contact.html">Contact</a></li>
+
+</ul>
+
+<div class="nav-buttons">
+
+<a href="pages/sgpa.html" class="btn">
+
+Get Started
+
+</a>
+
+</div>
+
+</nav>
 
 </header>
 
-<section class="calculator">
+<!-- ================= HERO ================= -->
 
-<h1>SGPA Calculator</h1>
+<section class="hero">
 
-<p>JNTUK R23 Regulation</p>
+<div class="hero-left">
 
-<div class="semester">
+<h1>
 
-<label>Semester</label>
+Calculate Your
 
-<select id="semester">
+<span>SGPA & CGPA</span>
 
-<option>1-1</option>
-<option>1-2</option>
-<option>2-1</option>
-<option>2-2</option>
-<option>3-1</option>
-<option>3-2</option>
-<option>4-1</option>
-<option>4-2</option>
+with Confidence
 
-</select>
+</h1>
 
-</div>
+<p>
 
-<table id="sgpaTable">
+Professional Academic Calculator
 
-<thead>
+built for
 
-<tr>
+JNTUK R23 Regulation.
 
-<th>Subject</th>
+Fast.
 
-<th>Credits</th>
+Accurate.
 
-<th>Grade</th>
+Free.
 
-</tr>
+</p>
 
-</thead>
+<div class="hero-buttons">
 
-<tbody>
-
-<!-- 12 rows -->
-
-<tr>
-
-<td>Subject 1</td>
-
-<td><input type="number" min="0" max="10"></td>
-
-<td>
-
-<select>
-
-<option value="">Select</option>
-
-<option>S</option>
-
-<option>A+</option>
-
-<option>A</option>
-
-<option>B</option>
-
-<option>C</option>
-
-<option>D</option>
-
-<option>E</option>
-
-<option>F</option>
-
-</select>
-
-</td>
-
-</tr>
-
-<!-- Repeat this row until Subject 12 -->
-
-</tbody>
-
-</table>
-
-<div class="buttons">
-
-<button id="calculateBtn">
+<a href="pages/sgpa.html" class="primary-btn">
 
 Calculate SGPA
 
-</button>
+</a>
 
-<button id="resetBtn">
+<a href="pages/cgpa.html" class="secondary-btn">
 
-Reset
+Calculate CGPA
 
-</button>
+</a>
 
 </div>
 
-<div id="resultCard">
+</div>
 
-<h2>Result</h2>
+<div class="hero-right">
 
-<p>SGPA : <span id="sgpaResult">0.00</span></p>
+<img src="assets/images/student.png"
 
-<p>Total Credits : <span id="creditResult">0</span></p>
-
-<p>Total Grade Points : <span id="gpResult">0</span></p>
-
-<p>Percentage : <span id="percentageResult">0%</span></p>
-
-<p>Performance : <span id="performance">-</span></p>
+alt="Student">
 
 </div>
 
 </section>
 
-<script src="../js/sgpa.js"></script>
+<!-- ================= FEATURES ================= -->
 
-</body>
-</html>
+<section class="features">
+
+<h2>
+
+Why Choose UniGrade?
+
+</h2>
+
+<div class="feature-container">
+
+<div class="card">
+
+<i class="fa-solid fa-calculator"></i>
+
+<h3>
+
+Accurate
+
+</h3>
+
+<p>
+
+Official JNTUK R23 Formula
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h3>
+
+Fast
+
+</h3>
+
+<p>
+
+Instant Calculation
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-mobile-screen"></i>
+
+<h3>
+
+Responsive
+
+</h3>
+
+<p>
+
+Works on Every Device
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<h3>
+
+Student Friendly
+
+</h3>
+
+<p>
+
+Simple Interface
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+<div class="stat">
+
+<h2>
+
+100%
+
+</h2>
+
+<p>
+
+Accurate
+
+</p>
+
+</div>
+
+<div class="stat">
+
+<h2>
+
+R23
+
+</h2>
+
+<p>
+
+Regulation
+
+</p>
+
+</div>
+
+<div class="stat">
+
+<h2>
+
+24/7
+
+</h2>
+
+<p>
+
+Available
+
+</p>
+
+</div>
+
+<div class="stat">
+
+<h2>
+
+Free
+
+</h2>
+
+<p>
+
+Unlimited
+
+</p>
+
+</div>
+
+</section>
