@@ -205,3 +205,62 @@ width:100%;
 }
 
 }
+/* ===========================
+   Dashboard Result Card
+=========================== */
+
+#resultCard,
+#cgpaResultCard {
+    display: none;
+    margin-top: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(37,99,235,.25);
+    animation: fadeIn .5s ease;
+}
+
+#resultCard h2,
+#cgpaResultCard h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.result-box{
+    background:rgba(255,255,255,.12);
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+}
+
+.result-box h3{
+    font-size:15px;
+    margin-bottom:8px;
+    font-weight:500;
+}
+
+.result-box p{
+    font-size:28px;
+    font-weight:bold;
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
