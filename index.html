@@ -1,147 +1,159 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGPA Calculator | UniGrade</title>
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>UniGrade | JNTU Academic Calculator</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/calculator.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 </head>
-
 <body>
 
-<div class="container">
+<header class="navbar">
 
-<div class="logo">
+    <div class="logo">
+        🎓 <span>UniGrade</span>
+    </div>
 
-<i class="fa-solid fa-graduation-cap"></i>
+    <nav>
 
-</div>
+        <a href="../index.html">Home</a>
 
-<h1>UniGrade</h1>
+        <a href="sgpa.html" class="active">SGPA</a>
 
-<p>Smart Academic Calculator for JNTU Students</p>
+        <a href="cgpa.html">CGPA</a>
 
-<div class="input-box">
+        <a href="about.html">About</a>
 
-<label>
+        <a href="contact.html">Contact</a>
 
-<i class="fa-solid fa-building-columns"></i>
+    </nav>
 
-University
+</header>
 
-</label>
+<section class="calculator">
 
-<select id="university">
+<h1>SGPA Calculator</h1>
 
-<option>JNTUK</option>
+<p>JNTUK R23 Regulation</p>
 
-<option>JNTUH</option>
+<div class="semester">
 
-<option>JNTUA</option>
+<label>Semester</label>
 
-</select>
+<select id="semester">
 
-</div>
-
-<div class="input-box">
-
-<label>
-
-<i class="fa-solid fa-book"></i>
-
-Regulation
-
-</label>
-
-<select id="regulation">
-
-<option>R23</option>
-
-<option>R22</option>
-
-<option>R20</option>
-
-<option>R19</option>
-
-<option>R16</option>
-
-<option>R13</option>
-
-<option>R10</option>
+<option>1-1</option>
+<option>1-2</option>
+<option>2-1</option>
+<option>2-2</option>
+<option>3-1</option>
+<option>3-2</option>
+<option>4-1</option>
+<option>4-2</option>
 
 </select>
 
 </div>
 
-<div class="input-box">
+<table id="sgpaTable">
 
-<label>
+<thead>
 
-<i class="fa-solid fa-calculator"></i>
+<tr>
 
-Calculator
+<th>Subject</th>
 
-</label>
+<th>Credits</th>
 
-<div class="radio">
+<th>Grade</th>
 
-<label>
+</tr>
 
-<input type="radio" name="calc" value="sgpa" checked>
+</thead>
 
-SGPA Calculator
+<tbody>
 
-</label>
+<!-- 12 rows -->
 
-<label>
+<tr>
 
-<input type="radio" name="calc" value="cgpa">
+<td>Subject 1</td>
 
-CGPA Calculator
+<td><input type="number" min="0" max="10"></td>
 
-</label>
+<td>
 
-</div>
+<select>
 
-</div>
+<option value="">Select</option>
 
-<button onclick="continueApp()">
+<option>S</option>
 
-<i class="fa-solid fa-arrow-right"></i>
+<option>A+</option>
 
-Continue
+<option>A</option>
+
+<option>B</option>
+
+<option>C</option>
+
+<option>D</option>
+
+<option>E</option>
+
+<option>F</option>
+
+</select>
+
+</td>
+
+</tr>
+
+<!-- Repeat this row until Subject 12 -->
+
+</tbody>
+
+</table>
+
+<div class="buttons">
+
+<button id="calculateBtn">
+
+Calculate SGPA
 
 </button>
 
-<div class="footer">
+<button id="resetBtn">
 
-Version 1.0
+Reset
 
-<br>
-
-Made with ❤️ by Tejesh Dimmiti
+</button>
 
 </div>
 
+<div id="resultCard">
+
+<h2>Result</h2>
+
+<p>SGPA : <span id="sgpaResult">0.00</span></p>
+
+<p>Total Credits : <span id="creditResult">0</span></p>
+
+<p>Total Grade Points : <span id="gpResult">0</span></p>
+
+<p>Percentage : <span id="percentageResult">0%</span></p>
+
+<p>Performance : <span id="performance">-</span></p>
+
 </div>
 
-<script src="home.js"></script>
+</section>
+
+<script src="../js/sgpa.js"></script>
 
 </body>
-
 </html>
