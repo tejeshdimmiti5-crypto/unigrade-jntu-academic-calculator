@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SGPA Calculator | UniGrade</title>
+<meta name="description" content="JNTUK R23 SGPA calculator using subject credits and official grade points.">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/navbar.css">
 <link rel="stylesheet" href="../css/calculator.css">
@@ -22,7 +23,8 @@
 </header>
 <section class="calculator">
   <h1>SGPA Calculator</h1>
-  <p>JNTUK R23 Regulation</p>
+  <p>JNTUK B.Tech R23 Regulation</p>
+  <p><strong>Formula:</strong> SGPA = Σ(Credit × Grade Point) / ΣCredits</p>
   <table id="sgpaTable">
     <thead><tr><th>Subject</th><th>Credits</th><th>Grade</th></tr></thead>
     <tbody></tbody>
@@ -36,10 +38,10 @@
     <div class="result-grid">
       <div class="result-box"><h3>SGPA</h3><p id="sgpaResult">0.00</p></div>
       <div class="result-box"><h3>Total Credits</h3><p id="creditResult">0</p></div>
-      <div class="result-box"><h3>Grade Points</h3><p id="gpResult">0.00</p></div>
-      <div class="result-box"><h3>Percentage</h3><p id="percentageResult">0%</p></div>
+      <div class="result-box"><h3>Weighted Grade Points</h3><p id="gpResult">0.00</p></div>
     </div>
-    <p style="text-align:center;margin-top:20px">Performance: <strong id="performance">-</strong></p>
+    <p style="text-align:center;margin-top:20px">Reference: <strong id="performance">-</strong></p>
+    <p style="text-align:center;margin-top:10px;font-size:13px">F/Ab carry 0 grade points and are included in SGPA. Non-credit audit courses are excluded.</p>
   </div>
 </section>
 <script src="../js/sgpa.js"></script>
