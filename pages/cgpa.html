@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CGPA Calculator | UniGrade</title>
-<meta name="description" content="Calculate CGPA from semester SGPA values with UniGrade.">
+<meta name="description" content="Calculate JNTUK R23 CGPA using semester credits and SGPA values.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,16 +13,42 @@
 <link rel="stylesheet" href="../css/calculator.css">
 <link rel="stylesheet" href="../css/responsive.css">
 <style>
-.cgpa-page{min-height:calc(100vh - 76px);padding:55px 6%;background:radial-gradient(circle at 90% 10%,#dbeafe,transparent 30%),#f5f8ff}.cgpa-shell{max-width:1050px;margin:auto}.cgpa-heading{text-align:center;margin-bottom:30px}.cgpa-heading .badge{display:inline-block;padding:8px 14px;border-radius:999px;background:#e8f0ff;color:#2563eb;font-size:13px;font-weight:700}.cgpa-heading h1{font-size:clamp(34px,5vw,52px);margin:15px 0 8px;color:#0b1736}.cgpa-heading p{color:#64748b}.cgpa-card{background:rgba(255,255,255,.9);border:1px solid #dbe7f5;border-radius:24px;padding:28px;box-shadow:0 25px 60px rgba(30,64,175,.1);backdrop-filter:blur(12px)}#cgpaTable{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden}#cgpaTable th{background:#eff6ff;color:#1e3a8a;padding:15px;text-align:left;font-size:14px}#cgpaTable th:first-child{border-radius:12px 0 0 0}#cgpaTable th:last-child{border-radius:0 12px 0 0}#cgpaTable td{padding:10px;border-bottom:1px solid #e8eef7;color:#334155}#cgpaTable tr:last-child td{border-bottom:0}#cgpaTable input{width:100%;padding:12px 13px;border:1px solid #d7e2f0;border-radius:10px;outline:0;font:inherit;background:#fff;transition:.2s}#cgpaTable input:focus{border-color:#2563eb;box-shadow:0 0 0 4px #dbeafe}.semester-label{font-weight:700}.buttons{display:flex;gap:12px;margin-top:25px}.buttons button{border:0;border-radius:11px;padding:14px 22px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,#2563eb,#4f46e5);color:#fff;transition:.25s}.buttons button:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(37,99,235,.25)}#resetCGPA{background:#eef2f7;color:#334155}.cgpa-result{display:none;margin-top:25px;padding:25px;border-radius:20px;background:linear-gradient(135deg,#eff6ff,#eef2ff);border:1px solid #cfe0ff}.cgpa-result h2{margin-bottom:18px;color:#0b1736}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.result-item{background:#fff;border-radius:15px;padding:18px;text-align:center;border:1px solid #dbe7f5}.result-item span{display:block;color:#64748b;font-size:12px;margin-bottom:6px}.result-item strong{font-size:25px;color:#2563eb}.cgpa-note{margin-top:18px;color:#64748b;font-size:12px}@media(max-width:650px){.cgpa-page{padding:40px 4%}.cgpa-card{padding:14px}.result-grid{grid-template-columns:1fr}.cgpa-card{overflow-x:auto}#cgpaTable{min-width:520px}.buttons{position:sticky;left:0}}
+.cgpa-page{min-height:calc(100vh - 76px);padding:55px 6%;background:radial-gradient(circle at 90% 10%,#dbeafe,transparent 30%),#f5f8ff}.cgpa-shell{max-width:1050px;margin:auto}.cgpa-heading{text-align:center;margin-bottom:30px}.cgpa-heading .badge{display:inline-block;padding:8px 14px;border-radius:999px;background:#e8f0ff;color:#2563eb;font-size:13px;font-weight:700}.cgpa-heading h1{font-size:clamp(34px,5vw,52px);margin:15px 0 8px;color:#0b1736}.cgpa-heading p{color:#64748b}.cgpa-card{background:rgba(255,255,255,.9);border:1px solid #dbe7f5;border-radius:24px;padding:28px;box-shadow:0 25px 60px rgba(30,64,175,.1);backdrop-filter:blur(12px)}#cgpaTable{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden}#cgpaTable th{background:#eff6ff;color:#1e3a8a;padding:15px;text-align:left;font-size:14px}#cgpaTable th:first-child{border-radius:12px 0 0 0}#cgpaTable th:last-child{border-radius:0 12px 0 0}#cgpaTable td{padding:10px;border-bottom:1px solid #e8eef7;color:#334155}#cgpaTable tr:last-child td{border-bottom:0}#cgpaTable input{width:100%;padding:12px 13px;border:1px solid #d7e2f0;border-radius:10px;outline:0;font:inherit;background:#fff;transition:.2s}#cgpaTable input:focus{border-color:#2563eb;box-shadow:0 0 0 4px #dbeafe}.semester-label{font-weight:700}.credit-note{font-size:12px;color:#64748b;margin:5px 0 20px}.buttons{display:flex;gap:12px;margin-top:25px}.buttons button{border:0;border-radius:11px;padding:14px 22px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,#2563eb,#4f46e5);color:#fff;transition:.25s}.buttons button:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(37,99,235,.25)}#resetCGPA{background:#eef2f7;color:#334155}.cgpa-result{display:none;margin-top:25px;padding:25px;border-radius:20px;background:linear-gradient(135deg,#eff6ff,#eef2ff);border:1px solid #cfe0ff}.cgpa-result h2{margin-bottom:18px;color:#0b1736}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.result-item{background:#fff;border-radius:15px;padding:18px;text-align:center;border:1px solid #dbe7f5}.result-item span{display:block;color:#64748b;font-size:12px;margin-bottom:6px}.result-item strong{font-size:25px;color:#2563eb}.cgpa-note{margin-top:18px;color:#64748b;font-size:12px}@media(max-width:650px){.cgpa-page{padding:40px 4%}.cgpa-card{padding:14px}.result-grid{grid-template-columns:1fr}.cgpa-card{overflow-x:auto}#cgpaTable{min-width:520px}.buttons{position:sticky;left:0}}
 </style>
 </head>
 <body>
 <header class="nav">
-<a class="brand" href="../index.html"><i class="fa-solid fa-graduation-cap"></i>Uni<span>Grade</span></a>
+<a class="brand" href="../index.html">🎓 Uni<span>Grade</span></a>
 <nav class="links"><a href="../index.html">Home</a><a href="sgpa.html">SGPA</a><a class="active" href="cgpa.html">CGPA</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
-<a class="nav-cta" href="sgpa.html">Calculate SGPA <i class="fa-solid fa-arrow-right"></i></a>
+<a class="nav-cta" href="sgpa.html">Calculate SGPA →</a>
 </header>
-<main class="cgpa-page"><div class="cgpa-shell"><div class="cgpa-heading"><span class="badge"><i class="fa-solid fa-chart-line"></i> Cumulative Performance</span><h1>CGPA Calculator</h1><p>Enter your semester SGPA values to calculate your overall CGPA.</p></div><div class="cgpa-card"><table id="cgpaTable"><thead><tr><th>Semester</th><th>SGPA</th></tr></thead><tbody></tbody></table><div class="buttons"><button id="calculateCGPA">Calculate CGPA <i class="fa-solid fa-arrow-right"></i></button><button id="resetCGPA">Reset</button></div><div id="cgpaResultCard" class="cgpa-result"><h2>Overall Result</h2><div class="result-grid"><div class="result-item"><span>CGPA</span><strong id="cgpaResult">0.00</strong></div><div class="result-item"><span>Semesters Entered</span><strong id="cgpaSemesters">0</strong></div><div class="result-item"><span>Equivalent Percentage</span><strong id="cgpaPercentage">0%</strong></div></div><p class="cgpa-note">Status: <strong id="cgpaStatus">—</strong></p></div></div></div></main>
+<main class="cgpa-page">
+  <div class="cgpa-shell">
+    <div class="cgpa-heading">
+      <span class="badge">JNTUK R23 • Credit Weighted</span>
+      <h1>CGPA Calculator</h1>
+      <p>Enter each semester's total credits and SGPA. JNTUK R23 CGPA is credit-weighted, not a simple average of SGPAs.</p>
+    </div>
+    <div class="cgpa-card">
+      <p class="credit-note"><strong>Formula:</strong> CGPA = Σ(Ci × Si) / ΣCi, where Ci is the semester credit weight and Si is the semester SGPA. SGPA and CGPA are rounded to 2 decimals.</p>
+      <table id="cgpaTable">
+        <thead><tr><th>Semester</th><th>Total Credits</th><th>SGPA</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div class="buttons"><button id="calculateCGPA">Calculate CGPA →</button><button id="resetCGPA">Reset</button></div>
+      <div id="cgpaResultCard" class="cgpa-result">
+        <h2>Overall Result</h2>
+        <div class="result-grid">
+          <div class="result-item"><span>CGPA</span><strong id="cgpaResult">0.00</strong></div>
+          <div class="result-item"><span>Total Credits</span><strong id="cgpaCredits">0</strong></div>
+          <div class="result-item"><span>Percentage</span><strong id="cgpaPercentage">0%</strong></div>
+        </div>
+        <p class="cgpa-note">CGPA band: <strong id="cgpaStatus">—</strong>. Final class award is subject to completion of the degree requirements.</p>
+        <p class="cgpa-note">JNTUK R23 percentage conversion: (CGPA − 0.5) × 10.</p>
+      </div>
+    </div>
+  </div>
+</main>
 <script src="../js/cgpa.js"></script>
 </body>
 </html>
