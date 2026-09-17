@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGPA Calculator | UniGrade</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/calculator.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="logo">🎓 UniGrade</div>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="sgpa.html" class="active">SGPA</a>
+    <a href="cgpa.html">CGPA</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+<section class="calculator">
+  <h1>SGPA Calculator</h1>
+  <p>JNTUK R23 Regulation</p>
+  <table id="sgpaTable">
+    <thead><tr><th>Subject</th><th>Credits</th><th>Grade</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <div class="buttons">
+    <button id="calculateBtn">Calculate SGPA</button>
+    <button id="resetBtn">Reset</button>
+  </div>
+  <div id="resultCard">
+    <h2>Semester Result</h2>
+    <div class="result-grid">
+      <div class="result-box"><h3>SGPA</h3><p id="sgpaResult">0.00</p></div>
+      <div class="result-box"><h3>Total Credits</h3><p id="creditResult">0</p></div>
+      <div class="result-box"><h3>Grade Points</h3><p id="gpResult">0.00</p></div>
+      <div class="result-box"><h3>Percentage</h3><p id="percentageResult">0%</p></div>
+    </div>
+    <p style="text-align:center;margin-top:20px">Performance: <strong id="performance">-</strong></p>
+  </div>
+</section>
+<script src="../js/sgpa.js"></script>
+</body>
+</html>
