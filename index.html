@@ -1,436 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>UniGrade | JNTUK Academic Calculator</title>
-
-    <meta name="description"
-        content="Professional SGPA & CGPA Calculator for JNTUK R23 Regulation">
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/responsive.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniGrade | JNTUK Academic Calculator</title>
+<meta name="description" content="UniGrade — a fast, responsive SGPA and CGPA calculator for JNTUK students.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-
 <body>
-
-<!-- ================= NAVBAR ================= -->
-
 <header>
-
 <nav class="navbar">
-
-<div class="logo">
-
-<i class="fa-solid fa-graduation-cap"></i>
-
-<h2>UniGrade</h2>
-
-</div>
-
-<ul class="nav-links">
-
-<li><a class="active" href="index.html">Home</a></li>
-
-<li><a href="pages/sgpa.html">SGPA</a></li>
-
-<li><a href="pages/cgpa.html">CGPA</a></li>
-
-<li><a href="pages/about.html">About</a></li>
-
-<li><a href="pages/contact.html">Contact</a></li>
-
-</ul>
-
-<div class="nav-buttons">
-
-<a href="pages/sgpa.html" class="btn">
-
-Get Started
-
-</a>
-
-</div>
-
+  <a class="logo" href="index.html"><i class="fa-solid fa-graduation-cap"></i><h2>UniGrade</h2></a>
+  <ul class="nav-links">
+    <li><a class="active" href="index.html">Home</a></li>
+    <li><a href="pages/sgpa.html">SGPA</a></li>
+    <li><a href="pages/cgpa.html">CGPA</a></li>
+    <li><a href="pages/about.html">About</a></li>
+    <li><a href="pages/contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-buttons"><a href="pages/sgpa.html" class="btn">Get Started <i class="fa-solid fa-arrow-right"></i></a></div>
 </nav>
-
 </header>
 
-<!-- ================= HERO ================= -->
-
+<main>
 <section class="hero">
-
-<div class="hero-left">
-
-<h1>
-
-Calculate Your
-
-<span>SGPA & CGPA</span>
-
-with Confidence
-
-</h1>
-
-<p>
-
-Professional Academic Calculator
-
-built for
-
-JNTUK R23 Regulation.
-
-Fast.
-
-Accurate.
-
-Free.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="pages/sgpa.html" class="primary-btn">
-
-Calculate SGPA
-
-</a>
-
-<a href="pages/cgpa.html" class="secondary-btn">
-
-Calculate CGPA
-
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-right">
-
-<img src="assets/images/student.png"
-
-alt="Student">
-
-</div>
-
+  <div class="hero-left">
+    <div class="hero-kicker"><i class="fa-solid fa-bolt"></i> Built for JNTUK R23 Students</div>
+    <h1>Calculate Your <span>SGPA &amp; CGPA</span> with Confidence</h1>
+    <p>A clean, fast and student-friendly academic calculator designed to make your semester results easier to understand.</p>
+    <div class="hero-buttons">
+      <a href="pages/sgpa.html" class="primary-btn">Calculate SGPA <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="pages/cgpa.html" class="secondary-btn">Calculate CGPA <i class="fa-solid fa-chart-column"></i></a>
+    </div>
+    <div class="hero-trust">
+      <span><i class="fa-solid fa-bolt"></i> Fast</span>
+      <span><i class="fa-solid fa-shield-halved"></i> Simple</span>
+      <span><i class="fa-solid fa-heart"></i> Student Friendly</span>
+      <span><i class="fa-solid fa-gift"></i> Free</span>
+    </div>
+  </div>
+  <div class="hero-right" aria-label="UniGrade calculator preview">
+    <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+    <div class="hero-visual">
+      <div class="mockup-top"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+      <div class="mockup-logo"><i class="fa-solid fa-graduation-cap"></i> Uni<span>Grade</span></div>
+      <small>JNTUK R23 Academic Calculator</small>
+      <div class="mockup-cards">
+        <a href="pages/sgpa.html" class="mock-card"><i class="fa-solid fa-file-lines"></i><strong>SGPA</strong><small>Semester score</small><b>→</b></a>
+        <a href="pages/cgpa.html" class="mock-card purple"><i class="fa-solid fa-chart-line"></i><strong>CGPA</strong><small>Overall score</small><b>→</b></a>
+      </div>
+      <div class="mockup-footer">Calculate · Track · Improve</div>
+    </div>
+    <div class="floating-badge badge-top"><i class="fa-solid fa-star"></i> Student First</div>
+    <div class="floating-badge badge-bottom"><i class="fa-solid fa-rocket"></i> Start Now</div>
+  </div>
 </section>
-
-<!-- ================= FEATURES ================= -->
-
-<section class="features">
-
-<h2>
-
-Why Choose UniGrade?
-
-</h2>
-
-<div class="feature-container">
-
-<div class="card">
-
-<i class="fa-solid fa-calculator"></i>
-
-<h3>
-
-Accurate
-
-</h3>
-
-<p>
-
-Official JNTUK R23 Formula
-
-</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-bolt"></i>
-
-<h3>
-
-Fast
-
-</h3>
-
-<p>
-
-Instant Calculation
-
-</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-mobile-screen"></i>
-
-<h3>
-
-Responsive
-
-</h3>
-
-<p>
-
-Works on Every Device
-
-</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-graduation-cap"></i>
-
-<h3>
-
-Student Friendly
-
-</h3>
-
-<p>
-
-Simple Interface
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= STATS ================= -->
 
 <section class="stats">
-
-<div class="stat">
-
-<h2>
-
-100%
-
-</h2>
-
-<p>
-
-Accurate
-
-</p>
-
-</div>
-
-<div class="stat">
-
-<h2>
-
-R23
-
-</h2>
-
-<p>
-
-Regulation
-
-</p>
-
-</div>
-
-<div class="stat">
-
-<h2>
-
-24/7
-
-</h2>
-
-<p>
-
-Available
-
-</p>
-
-</div>
-
-<div class="stat">
-
-<h2>
-
-Free
-
-</h2>
-
-<p>
-
-Unlimited
-
-</p>
-
-</div>
-
-</section>
-    <!-- ================= CTA ================= -->
-
-<section class="cta">
-
-    <div class="cta-content">
-
-        <h2>Start Calculating Your Academic Performance Today</h2>
-
-        <p>
-            Calculate your SGPA and CGPA instantly using the official
-            JNTUK R23 Regulation.
-        </p>
-
-        <a href="pages/sgpa.html" class="primary-btn">
-            Get Started
-        </a>
-
-    </div>
-
+  <div class="stat"><i class="fa-solid fa-users"></i><h2>Student</h2><p>Focused</p></div>
+  <div class="stat"><i class="fa-solid fa-calculator"></i><h2>SGPA</h2><p>Instant calculation</p></div>
+  <div class="stat"><i class="fa-solid fa-chart-line"></i><h2>CGPA</h2><p>Semester tracking</p></div>
+  <div class="stat"><i class="fa-solid fa-heart"></i><h2>Free</h2><p>Always available</p></div>
 </section>
 
-<!-- ================= FAQ ================= -->
+<section class="features">
+  <div class="section-heading"><span>WHY UNIGRADE?</span><h2>Everything You Need in <em>One Place</em></h2><p>Simple tools made specifically for students.</p></div>
+  <div class="feature-container">
+    <div class="card"><div class="icon-circle blue"><i class="fa-solid fa-bolt"></i></div><h3>Fast &amp; Easy</h3><p>Calculate your SGPA or CGPA in seconds with a clean interface.</p></div>
+    <div class="card"><div class="icon-circle green"><i class="fa-solid fa-bullseye"></i></div><h3>Accurate Results</h3><p>Use the configured JNTUK R23 grading and credit calculations.</p></div>
+    <div class="card"><div class="icon-circle orange"><i class="fa-solid fa-graduation-cap"></i></div><h3>Student Focused</h3><p>Built around the everyday academic needs of engineering students.</p></div>
+    <div class="card"><div class="icon-circle pink"><i class="fa-solid fa-mobile-screen"></i></div><h3>Works Everywhere</h3><p>Responsive layouts that work smoothly across desktop and mobile.</p></div>
+  </div>
+</section>
+
+<section class="cta"><div class="cta-content"><span class="cta-label">READY TO CALCULATE?</span><h2>Start Your Academic Journey Today!</h2><p>Enter your grades, calculate your result and keep moving forward.</p><a href="pages/sgpa.html" class="primary-btn">Get Started Now <i class="fa-solid fa-arrow-right"></i></a></div><div class="cta-icon"><i class="fa-solid fa-rocket"></i></div></section>
 
 <section class="faq">
-
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-container">
-
-        <div class="faq-box">
-
-            <h3>What is SGPA?</h3>
-
-            <p>
-                SGPA (Semester Grade Point Average) is the average grade point
-                earned in one semester based on subject credits.
-            </p>
-
-        </div>
-
-        <div class="faq-box">
-
-            <h3>What is CGPA?</h3>
-
-            <p>
-                CGPA (Cumulative Grade Point Average) is calculated using all
-                semester SGPAs and their credits.
-            </p>
-
-        </div>
-
-        <div class="faq-box">
-
-            <h3>Does UniGrade support JNTUK R23?</h3>
-
-            <p>
-                Yes. UniGrade follows the official JNTUK R23 grading and
-                calculation system.
-            </p>
-
-        </div>
-
-        <div class="faq-box">
-
-            <h3>Is UniGrade free?</h3>
-
-            <p>
-                Yes. UniGrade is completely free for students.
-            </p>
-
-        </div>
-
-    </div>
-
+  <div class="section-heading"><span>NEED HELP?</span><h2>Frequently Asked Questions</h2><p>Quick answers about UniGrade.</p></div>
+  <div class="faq-container">
+    <div class="faq-box"><h3>What is SGPA?</h3><p>SGPA represents the grade-point average for a semester.</p><i class="fa-solid fa-plus"></i></div>
+    <div class="faq-box"><h3>What is CGPA?</h3><p>CGPA represents cumulative academic performance across semesters.</p><i class="fa-solid fa-plus"></i></div>
+    <div class="faq-box"><h3>Can I use UniGrade on mobile?</h3><p>Yes. The interface is designed to adapt to smaller screens.</p><i class="fa-solid fa-plus"></i></div>
+    <div class="faq-box"><h3>Do I need to create an account?</h3><p>No account is required to use the calculator pages.</p><i class="fa-solid fa-plus"></i></div>
+  </div>
 </section>
-
-<!-- ================= FOOTER ================= -->
+</main>
 
 <footer>
-
-    <div class="footer-container">
-
-        <div class="footer-logo">
-
-            <h2>
-                <i class="fa-solid fa-graduation-cap"></i>
-                UniGrade
-            </h2>
-
-            <p>
-                Smart Academic Calculator for
-                JNTUK Students.
-            </p>
-
-        </div>
-
-        <div class="footer-links">
-
-            <h3>Quick Links</h3>
-
-            <a href="index.html">Home</a>
-
-            <a href="pages/sgpa.html">SGPA</a>
-
-            <a href="pages/cgpa.html">CGPA</a>
-
-            <a href="pages/about.html">About</a>
-
-            <a href="pages/contact.html">Contact</a>
-
-        </div>
-
-        <div class="footer-links">
-
-            <h3>Features</h3>
-
-            <a href="#">SGPA Calculator</a>
-
-            <a href="#">CGPA Calculator</a>
-
-            <a href="#">Percentage Calculator</a>
-
-            <a href="#">R23 Regulation</a>
-
-        </div>
-
-    </div>
-
-    <hr>
-
-    <p class="copyright">
-
-        © 2026 UniGrade | Developed by
-        <strong>Tejesh Dimmiti</strong>
-
-    </p>
-
+  <div class="footer-container">
+    <div class="footer-logo"><h2><i class="fa-solid fa-graduation-cap"></i> UniGrade</h2><p>JNTUK R23 Academic Calculator</p><p>Calculate Today. Build Tomorrow.</p></div>
+    <div class="footer-links"><h3>Quick Links</h3><a href="index.html">Home</a><a href="pages/sgpa.html">SGPA</a><a href="pages/cgpa.html">CGPA</a></div>
+    <div class="footer-links"><h3>Explore</h3><a href="pages/about.html">About</a><a href="pages/contact.html">Contact</a></div>
+  </div>
+  <hr><p class="copyright">© 2026 UniGrade · Developed by <strong>Tejesh Dimmiti</strong></p>
 </footer>
-
-<script src="js/app.js"></script>
-
 </body>
-
 </html>
