@@ -1,135 +1,55 @@
-// ================================
-// UniGrade CGPA Calculator
-// ================================
+// UniGrade CGPA Calculator — CGPA from semester SGPAs only
 
-const tbody =
-document.querySelector("#cgpaTable tbody");
+const tbody = document.querySelector("#cgpaTable tbody");
 
-// Create 8 Semester Rows
+function createSemesterRows() {
+    tbody.innerHTML = "";
 
-function createSemesterRows(){
-
-tbody.innerHTML="";
-
-for(let i=1;i<=8;i++){
-
-const row=document.createElement("tr");
-
-row.innerHTML=`
-
-<td>Semester ${i}</td>
-
-<td>
-
-<input
-type="number"
-class="credits"
-placeholder="Credits">
-
-</td>
-
-<td>
-
-<input
-type="number"
-step="0.01"
-class="sgpa"
-placeholder="SGPA">
-
-</td>
-
-`;
-
-tbody.appendChild(row);
-
+    for (let i = 1; i <= 8; i++) {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td class="semester-label">Semester ${i}</td>
+            <td>
+                <input type="number" min="0" max="10" step="0.01"
+                       class="sgpa" placeholder="Enter SGPA" aria-label="Semester ${i} SGPA">
+            </td>
+        `;
+        tbody.appendChild(row);
+    }
 }
 
+function calculateCGPA() {
+    const sgpas = [...document.querySelectorAll(".sgpa")]
+        .map(input => parseFloat(input.value))
+        .filter(value => !Number.isNaN(value));
+
+    if (sgpas.length === 0) {
+        alert("Enter at least one semester SGPA.");
+        return;
+    }
+
+    const invalid = sgpas.some(value => value < 0 || value > 10);
+    if (invalid) {
+        alert("SGPA must be between 0 and 10.");
+        return;
+    }
+
+    // CGPA is calculated from the entered semester SGPAs.
+    const cgpa = sgpas.reduce((sum, value) => sum + value, 0) / sgpas.length;
+    const percentage = Math.max(0, (cgpa - 0.75) * 10);
+
+    document.getElementById("cgpaResult").textContent = cgpa.toFixed(2);
+    document.getElementById("cgpaSemesters").textContent = sgpas.length;
+    document.getElementById("cgpaPercentage").textContent = percentage.toFixed(2) + "%";
+    document.getElementById("cgpaStatus").textContent = cgpa >= 4 ? "PASS" : "FAIL";
+    document.getElementById("cgpaResultCard").style.display = "block";
 }
 
-createSemesterRows();
+document.getElementById("calculateCGPA").addEventListener("click", calculateCGPA);
 
-
-// Calculate CGPA
-
-document
-.getElementById("calculateCGPA")
-.addEventListener("click",calculateCGPA);
-
-
-function calculateCGPA(){
-
-const credits=
-document.querySelectorAll(".credits");
-
-const sgpas=
-document.querySelectorAll(".sgpa");
-
-let totalCredits=0;
-
-let weightedPoints=0;
-
-let semesters=0;
-
-for(let i=0;i<credits.length;i++){
-
-const c=parseFloat(credits[i].value);
-
-const s=parseFloat(sgpas[i].value);
-
-if(!isNaN(c)&&!isNaN(s)){
-
-totalCredits+=c;
-
-weightedPoints+=c*s;
-
-semesters++;
-
-}
-
-}
-
-if(semesters===0){
-
-alert("Enter Semester Details");
-
-return;
-
-}
-
-const cgpa=
-weightedPoints/totalCredits;
-
-const percentage=
-(cgpa-0.75)*10;
-
-document.getElementById("cgpaResult")
-.textContent=cgpa.toFixed(2);
-
-document.getElementById("cgpaCredits")
-.textContent=totalCredits;
-
-document.getElementById("cgpaPercentage")
-.textContent=
-percentage.toFixed(2)+"%";
-
-document.getElementById("cgpaStatus")
-.textContent=
-cgpa>=4?"PASS":"FAIL";
-
-document.getElementById("cgpaResultCard")
-.style.display="block";
-
-}
-
-// Reset
-
-document
-.getElementById("resetCGPA")
-.addEventListener("click",()=>{
-
-createSemesterRows();
-
-document.getElementById("cgpaResultCard")
-.style.display="none";
-
+document.getElementById("resetCGPA").addEventListener("click", () => {
+    createSemesterRows();
+    document.getElementById("cgpaResultCard").style.display = "none";
 });
+
+createSemesterRows();
